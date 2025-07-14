@@ -29,7 +29,7 @@ jobs:
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
         with:
-          workload_identity_provider: 'projects/603530979343/locations/global/workloadIdentityPools/github-dev-pool/providers/github-dev-provider/'
+          workload_identity_provider: 'projects/603530979343/locations/global/workloadIdentityPools/github-dev-pool/providers/github-dev-provider'
           service_account: 'pipeline-deployer-dev@gcp-101-dev.iam.gserviceaccount.com '
 
       # setup terraform
