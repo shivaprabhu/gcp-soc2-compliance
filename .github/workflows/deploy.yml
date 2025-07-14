@@ -19,7 +19,7 @@ jobs:
     defaults:
       run:
         # run all steps from the dev environment
-        working-directory: 'environments/dev'
+        working-directory: './environments/dev'
 
     steps:
       - name: Checkout
