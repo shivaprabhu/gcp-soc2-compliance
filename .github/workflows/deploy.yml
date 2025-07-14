@@ -2,8 +2,9 @@ name: 'Terraform Dev Deploy'
 
 on:
   push:
-    branches:
+    branches-ignore:
       - main
+      - staging
 
 # Permissions needed for OIDC token
 permissions:
