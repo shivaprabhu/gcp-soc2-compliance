@@ -40,7 +40,7 @@ jobs:
         with:
           token_format: access_token
           access_token_lifetime: 3600s
-          workload_identity_provider: 'https://iam.googleapis.com/projects/603530979343/locations/global/workloadIdentityPools/github-dev-pool/providers/github-dev'
+          workload_identity_provider: '//iam.googleapis.com/projects/603530979343/locations/global/workloadIdentityPools/github-dev-pool/providers/github-dev'
           service_account: 'pipeline-deployer-dev@gcp-101-dev.iam.gserviceaccount.com'
       
 
