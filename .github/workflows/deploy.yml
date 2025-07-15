@@ -15,15 +15,19 @@ jobs:
   terraform-plan:
     name: 'Terraform Plan'
     runs-on: ubuntu-latest
-
+    
     defaults:
       run:
         # run all steps from the dev environment
         working-directory: './environments/dev'
+        
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      
+      - name: Print Repository Name
+        run: echo ${{ github.repository }}
 
       # authenticate to google cloud
       - name: Authenticate to Google Cloud
