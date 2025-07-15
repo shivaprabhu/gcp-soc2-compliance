@@ -30,6 +30,10 @@ jobs:
         run: echo ${{ github.repository }}
 
       # authenticate to google cloud
+      - name: Print OIDC token
+        run: |
+          curl -H "Authorization: bearer $ACTIONS_ID_TOKEN" https://token.actions.githubusercontent.com/.well-known/openid-configuration
+          
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
         id: gcloud-auth
@@ -39,9 +43,6 @@ jobs:
           workload_identity_provider: projects/603530979343/locations/global/workloadIdentityPools/github-dev-pool/providers/github-dev'
           service_account: 'pipeline-deployer-dev@gcp-101-dev.iam.gserviceaccount.com'
       
-      - name: Print OIDC token
-        run: |
-          curl -H "Authorization: bearer $ACTIONS_ID_TOKEN" https://token.actions.githubusercontent.com/.well-known/openid-configuration
 
       # setup terraform
       - name: Setup Terraform
