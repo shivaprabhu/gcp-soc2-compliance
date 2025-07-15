@@ -33,7 +33,6 @@ jobs:
       - name: Print OIDC token
         run: |
           curl -H "Authorization: bearer $ACTIONS_ID_TOKEN" https://token.actions.githubusercontent.com/.well-known/openid-configuration
-      
 
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
@@ -41,12 +40,8 @@ jobs:
         with:
           token_format: access_token
           access_token_lifetime: 3600s
-          workload_identity_provider: projects/603530979343/locations/global/workloadIdentityPools/github-dev-pool/providers/github-dev'
+          workload_identity_provider: //iam.googleapis.com/projects/603530979343/locations/global/workloadIdentityPools/github-dev-pool/providers/github-dev'
           service_account: 'pipeline-deployer-dev@gcp-101-dev.iam.gserviceaccount.com'
-      
-      - name: Show raw OIDC token
-        run: |
-          echo "${{ steps.gcloud-auth.outputs.id_token }}" | awk -F. '{print $2}' | base64 --decode | jq .
       
 
       # setup terraform
