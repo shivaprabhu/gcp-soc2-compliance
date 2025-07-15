@@ -33,7 +33,9 @@ jobs:
       - name: Print OIDC token
         run: |
           curl -H "Authorization: bearer $ACTIONS_ID_TOKEN" https://token.actions.githubusercontent.com/.well-known/openid-configuration
-          
+      - name: Debug OIDC Token
+        uses: google-github-actions/debug-oidc@v1
+
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
         id: gcloud-auth
